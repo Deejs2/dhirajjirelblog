@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --primary-color: #1ac433;
+    --secondary-color: #418dcf;
+}
+
+.primary-color{
+    color: var(--primary-color) !important;
+}
+
+.secondary-color{
+    color: var(--secondary-color) !important;
+}
