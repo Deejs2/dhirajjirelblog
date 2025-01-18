@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-:root{
-    --primary-color: #1ac433;
-    --secondary-color: #418dcf;
-}
+:root {
+    --primary-color: #1cb06e;
+    --secondary-color: #3b84c5;
+    --light-bg: #f8f9fa;
+  }
 
 .primary-color{
     color: var(--primary-color) !important;
@@ -10,4 +11,19 @@
 
 .secondary-color{
     color: var(--secondary-color) !important;
+}
+
+.bg-primary{
+    background: var(--primary-color) !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--primary-color) !important;
+    --bs-btn-border-color: var(--primary-color) !important;
+    --bs-btn-hover-bg: var(--secondary-color) !important;
+    --bs-btn-hover-border-color: var(--secondary-color) !important;
+    --bs-btn-active-bg: var(--secondary-color) !important;
+    --bs-btn-active-border-color: var(--secondary-color) !important;
+    --bs-btn-disabled-bg: var(--primary-color) !important;
+    --bs-btn-disabled-border-color: var(--secondary-color) !important;
 }

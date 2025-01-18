@@ -1,0 +1,49 @@
+<!-- blog-post.component.html -->
+<div class="blog-post-page">
+
+    <a (click)="onClickGoBack()" class="btn btn-primary rounded-pill mb-4">
+      <i class="bi bi-arrow-left me-2"></i>Go Back
+    </a>
+
+    <!-- Post Header -->
+    <header class="blog-header py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <div class="post-meta mb-3">
+              <span class="text-muted me-3">
+                <i class="bi bi-person-fill me-1"></i>{{ post.author }}
+              </span>
+              <span class="text-muted me-3">
+                <i class="bi bi-calendar3 me-1"></i>{{ post.date }}
+              </span>
+              <span class="text-muted">
+                <i class="bi bi-folder me-1"></i>{{ post.category }}
+              </span>
+            </div>
+            <h1 class="display-4 fw-bold mb-4">{{ post.title }}</h1>
+            <div class="post-tags">
+              <a href="#" class="tag-link" *ngFor="let tag of post.tags">{{ tag }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <!-- Post Content -->
+    <section class="post-content py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <!-- Featured Image -->
+            <img [src]="post.image" [alt]="post.title" class="img-fluid rounded mb-4 shadow-sm" loading="lazy">
+            
+            <!-- Post Content -->
+            <article class="blog-content" [innerHTML]="post.content">
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
