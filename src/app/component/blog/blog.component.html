@@ -5,7 +5,17 @@
             <div class="blog-item-content p-4">
                 <div class="mb-3">
                     <span class="text-muted">
-                        <i class="bi bi-pencil-fill me-2"></i>{{ post.category }}
+                        <i class="bi bi-calendar3"></i> {{ post.date }}
+                        <i class="bi bi-person ms-3"></i> {{ post.author }}
+                        <div *ngIf="post.category == 'Hackathon'" class="badge bg-success ms-3">
+                            <i class="bi bi-trophy"></i> {{ post.category }}
+                        </div>
+                        <div *ngIf="post.category == 'Travel & Nature'" class="badge bg-info ms-3">
+                            <i class="bi bi-tree"></i> {{ post.category }}
+                        </div>
+                        <div *ngIf="post.category == 'Personal'" class="badge bg-primary ms-3">
+                            <i class="bi bi-person-circle"></i> {{ post.category }}
+                        </div>
                     </span>
                 </div>
                 <h3 class="h4 mb-3">
@@ -19,7 +29,7 @@
 </div>
 
 <!-- Pagination -->
-<!-- <nav class="mt-5">
+<nav class="mt-5">
     <ul class="pagination justify-content-center">
         <li class="page-item" [class.disabled]="currentPage === 1">
             <a class="page-link rounded-pill" href="#" (click)="changePage(currentPage - 1)">Previous</a>
@@ -31,4 +41,4 @@
             <a class="page-link rounded-pill" href="#" (click)="changePage(currentPage + 1)">Next</a>
         </li>
     </ul>
-</nav> -->
+</nav>
