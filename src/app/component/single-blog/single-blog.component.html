@@ -1,49 +1,106 @@
-<!-- blog-post.component.html -->
-<div class="blog-post-page">
+<!-- Single Blog Post Page -->
+<div class="min-h-screen">
 
-    <a (click)="onClickGoBack()" class="btn btn-primary rounded-pill mb-4">
-      <i class="bi bi-arrow-left me-2"></i>Go Back
-    </a>
+    <!-- Back Button -->
+    <button (click)="onClickGoBack()" 
+            class="group inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-600 hover:bg-primary-900 hover:text-white hover:border-primary-900 transition-all duration-300 mb-6 shadow-sm">
+        <i class="bi bi-arrow-left group-hover:-translate-x-1 transition-transform duration-200"></i>
+        Back to Blog
+    </button>
 
-    <!-- Post Header -->
-    <header class="blog-header py-5 bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <div class="post-meta mb-3">
-              <span class="text-muted me-3">
-                <i class="bi bi-person-fill me-1"></i>{{ post.author }}
-              </span>
-              <span class="text-muted me-3">
-                <i class="bi bi-calendar3 me-1"></i>{{ post.date }}
-              </span>
-              <span class="text-muted">
-                <i class="bi bi-folder me-1"></i>{{ post.category }}
-              </span>
+    <!-- Post Header Card -->
+    <header class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-8">
+        <!-- Category & Meta Bar -->
+        <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <!-- Category Badge -->
+                <span *ngIf="post.category === 'Hackathon'" 
+                      class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                    <i class="bi bi-trophy me-1.5"></i> {{ post.category }}
+                </span>
+                <span *ngIf="post.category === 'Travel & Nature'" 
+                      class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">
+                    <i class="bi bi-tree me-1.5"></i> {{ post.category }}
+                </span>
+                <span *ngIf="post.category === 'Personal'" 
+                      class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">
+                    <i class="bi bi-person-circle me-1.5"></i> {{ post.category }}
+                </span>
+                
+                <!-- Meta Info -->
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center">
+                        <i class="bi bi-person-fill text-accent me-1.5"></i> {{ post.author }}
+                    </span>
+                    <span class="flex items-center">
+                        <i class="bi bi-calendar3 text-accent me-1.5"></i> {{ post.date }}
+                    </span>
+                </div>
             </div>
-            <h1 class="display-4 fw-bold mb-4">{{ post.title }}</h1>
-            <div class="post-tags">
-              <a href="#" class="tag-link" *ngFor="let tag of post.tags">{{ tag }}</a>
-            </div>
-          </div>
         </div>
-      </div>
-    </header>
-  
-    <!-- Post Content -->
-    <section class="post-content py-5">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <!-- Featured Image -->
-            <img [src]="post.image" [alt]="post.title" class="img-fluid rounded mb-4 shadow-sm" loading="lazy">
+        
+        <!-- Title Section -->
+        <div class="px-6 py-8 text-center">
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-primary-900 leading-tight mb-6">
+                {{ post.title }}
+            </h1>
             
-            <!-- Post Content -->
-            <article class="blog-content" [innerHTML]="post.content">
-            </article>
-          </div>
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <span *ngFor="let tag of post.tags" 
+                      class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full hover:bg-accent hover:text-white transition-colors duration-200 cursor-default">
+                    #{{ tag }}
+                </span>
+            </div>
         </div>
-      </div>
-    </section>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="mb-8">
+        <img [src]="post.image" [alt]="post.title" 
+             class="w-full rounded-2xl shadow-lg object-cover max-h-[500px]"
+             loading="lazy">
+    </div>
     
-  </div>
+    <!-- Post Content -->
+    <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="p-6 sm:p-8 lg:p-10">
+            <div class="prose prose-lg max-w-none
+                        prose-headings:font-serif prose-headings:text-primary-900 prose-headings:font-bold
+                        prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                        prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-4
+                        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+                        prose-strong:text-primary-900
+                        prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
+                        prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
+                        prose-li:text-gray-600 prose-li:mb-2
+                        prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-500
+                        prose-img:rounded-xl prose-img:shadow-md prose-img:my-6" 
+                 [innerHTML]="post.content">
+            </div>
+        </div>
+        
+        <!-- Share Section -->
+        <div class="px-6 sm:px-8 lg:px-10 py-6 border-t border-gray-100 bg-gray-50/50">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="text-sm text-gray-500">Enjoyed this article? Share it!</span>
+                <div class="flex items-center gap-2">
+                    <button class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-200">
+                        <i class="bi bi-facebook"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:bg-black hover:border-black hover:text-white transition-all duration-200">
+                        <i class="bi bi-twitter-x"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:bg-blue-700 hover:border-blue-700 hover:text-white transition-all duration-200">
+                        <i class="bi bi-linkedin"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-500 hover:bg-green-500 hover:border-green-500 hover:text-white transition-all duration-200">
+                        <i class="bi bi-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+</div>

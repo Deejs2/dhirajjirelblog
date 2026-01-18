@@ -1,67 +1,131 @@
-<!-- blog.component.html -->
-<section class="hero-section py-5 bg-light">
-    <div class="container py-5">
-      <div class="row align-items-center">
-        <div class="col-lg-12">
-          <h1 class="display-4 fw-bold mb-4">Welcome to Dhiraj Jirel Blog</h1>
-          <p class="lead mb-4 text-center">Discover stories, thinking, and expertise from writers on any topic.</p>
-        </div>
-      </div>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
     </div>
-  </section>
-  
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-            <!-- Main Blog Content -->
-            <router-outlet></router-outlet>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+                <i class="bi bi-stars me-2"></i> Welcome to my blog
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                Dhiraj Jirel <span class="text-accent">Blog</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                Discover stories, insights, and experiences from my journey as a developer. From travel adventures to tech discoveries.
+            </p>
         </div>
-  
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-  
-          <!-- Author Widget -->
-          <div class="sidebar-widget bg-white rounded shadow-sm p-4 mb-4 text-center">
-            <img src="assets/Dhiraj-Jirel-Blog-Profile.jpg" alt="Author" class="rounded-circle mb-3" width="120">
-            <h5 class="mb-3">Dhiraj Jirel</h5>
-            <p class="text-muted mb-3">Web Developer</p>
-            <p class="text-muted">I am a web developer with a passion for web development.
-                I have worked on various projects and have gained a lot of experience in web development.</p>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/people/Dhiraj-Jirel/100008951822229/" target="_blank" title="Dhiraj Jirel Facebook Profile" class="btn btn-light rounded-circle mx-1">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="https://x.com/dhiraj_np" target="_blank" title="Dhiraj Jirel X Profile" class="btn btn-light rounded-circle mx-1">
-                <i class="bi bi-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/dhiraj07j" target="_blank" title="Dhiraj Jirel Instagram Profile" class="btn btn-light rounded-circle mx-1">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/dhiraj-j" target="_blank" title="Dhiraj Jirel LinkedIn Profile" class="btn btn-light rounded-circle mx-1">
-                <i class="bi bi-linkedin"></i>
-              </a>
-            </div>
-          </div>
-  
-          <!-- Latest Posts Widget -->
-          <!-- <div class="sidebar-widget bg-white rounded shadow-sm p-4 mb-4">
-            <h5 class="mb-4">Latest Posts</h5>
-            <div class="latest-post" *ngFor="let post of latestPosts">
-              <div class="d-flex mb-4">
-                <img [src]="post.image" [alt]="post.title" class="rounded me-3" width="80" height="80">
-                <div>
-                  <h6 class="mb-2">
-                    <a href="#" class="text-decoration-none text-dark">{{ post.title }}</a>
-                  </h6>
-                  <span class="text-muted small">{{ post.date }}</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
+    </div>
+</section>
 
+<!-- Main Content -->
+<section class="bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            
+            <!-- Main Blog Content -->
+            <div class="lg:w-2/3 order-2 lg:order-1">
+                <router-outlet></router-outlet>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 order-1 lg:order-2">
+                <div class="lg:sticky lg:top-24 space-y-6">
+                    
+                    <!-- Author Card -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <!-- Cover Image -->
+                        <div class="h-24 bg-gradient-to-br from-primary-900 to-primary-700 relative">
+                        </div>
+                        
+                        <div class="px-6 pb-6 text-center -mt-12">
+                            <img src="assets/Dhiraj-Jirel-Blog-Profile.jpg" alt="Dhiraj Jirel" 
+                                 class="w-24 h-24 rounded-full border-4 border-white shadow-lg mx-auto object-cover relative">
+                            <h3 class="text-xl font-serif font-bold text-primary-900 mt-4">Dhiraj Jirel</h3>
+                            <p class="text-accent font-medium text-sm mt-1">Web Developer</p>
+                            <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                                Passionate developer sharing insights about web development, travel adventures, and life experiences.
+                            </p>
+                            
+                            <!-- Social Links -->
+                            <div class="flex justify-center gap-2 mt-5">
+                                <a href="https://www.facebook.com/people/Dhiraj-Jirel/100008951822229/" target="_blank" 
+                                   title="Facebook" 
+                                   class="w-9 h-9 bg-gray-100 hover:bg-accent rounded-lg flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300">
+                                    <i class="bi bi-facebook text-sm"></i>
+                                </a>
+                                <a href="https://x.com/dhiraj_np" target="_blank" 
+                                   title="X (Twitter)"
+                                   class="w-9 h-9 bg-gray-100 hover:bg-accent rounded-lg flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300">
+                                    <i class="bi bi-twitter-x text-sm"></i>
+                                </a>
+                                <a href="https://www.instagram.com/dhiraj07j" target="_blank" 
+                                   title="Instagram"
+                                   class="w-9 h-9 bg-gray-100 hover:bg-accent rounded-lg flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300">
+                                    <i class="bi bi-instagram text-sm"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/dhiraj-j" target="_blank" 
+                                   title="LinkedIn"
+                                   class="w-9 h-9 bg-gray-100 hover:bg-accent rounded-lg flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300">
+                                    <i class="bi bi-linkedin text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Posts Widget -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <h4 class="text-lg font-serif font-bold text-primary-900">Latest Posts</h4>
+                            <span class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <i class="bi bi-fire text-accent text-sm"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <article *ngFor="let post of latestPosts; let last = last" 
+                                     class="group" [class.pb-4]="!last" [class.border-b]="!last" [class.border-gray-100]="!last">
+                                <a [routerLink]="['/blog', post.slug]" class="flex gap-4">
+                                    <div class="flex-shrink-0">
+                                        <img [src]="post.image" [alt]="post.title" 
+                                             class="w-16 h-16 rounded-xl object-cover group-hover:ring-2 ring-accent/50 transition-all duration-300">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h5 class="text-sm font-medium text-primary-900 group-hover:text-accent transition-colors duration-200 line-clamp-2 leading-snug">
+                                            {{ post.title }}
+                                        </h5>
+                                        <p class="text-xs text-gray-400 mt-1.5 flex items-center">
+                                            <i class="bi bi-calendar3 me-1"></i>
+                                            {{ post.date }}
+                                        </p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <h4 class="text-lg font-serif font-bold text-primary-900 mb-4">Categories</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-green-50 text-green-600 text-xs font-medium rounded-full border border-green-100">
+                                🏆 Hackathon
+                            </span>
+                            <span class="px-3 py-1.5 bg-blue-50 text-blue-600 text-xs font-medium rounded-full border border-blue-100">
+                                🌲 Travel & Nature
+                            </span>
+                            <span class="px-3 py-1.5 bg-purple-50 text-purple-600 text-xs font-medium rounded-full border border-purple-100">
+                                👤 Personal
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            
         </div>
-        
-      </div>
     </div>
-  </section>
+</section>

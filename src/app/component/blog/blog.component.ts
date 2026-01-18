@@ -23,6 +23,17 @@ interface BlogPost {
 export class BlogComponent {
   blogPosts: BlogPost[] = [
     {
+      title: "One Night Camping at Chapakharka – Embracing Nature and Friendship",
+      slug: "one-night-camping-chapakharka",
+      author: "Dhiraj Jirel",
+      date: "Poush 18, 2082",
+      category: "Travel & Nature",
+      tags: ["Camping", "Chapakharka", "Nature", "Friends", "Adventure", "Bonfire", "Stargazing"],
+      image: "assets/camping/chapakharka-camping-group-photo.jpeg",
+      description: "An unforgettable one-night camping experience at Chapakharka with friends, filled with nature, adventure, bonfires, and stargazing."
+    },
+
+    {
       title: "Ambition Hack Fest 2082 – Team BROGRAMMERS Shine with Social Impact Solution",
       slug: "ambition-hackfest-2082-brogrammers",
       author: "Dhiraj Jirel",

@@ -1,6 +1,29 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-primary fixed-top shadow-sm">
-    <div class="container">
-        <a rel="canonical" class="navbar-brand text-white" href="https://www.dhirajjirel.com.np">DHIRAJ JIREL</a>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-primary-900/95 backdrop-blur-md border-b border-primary-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a rel="canonical" href="https://www.dhirajjirel.com.np" 
+               class="group flex items-center space-x-2 text-white font-serif text-xl font-bold tracking-wide hover:text-accent transition-colors duration-300">
+                <span class="w-10 h-10 bg-gradient-to-br from-accent to-accent-600 rounded-lg flex items-center justify-center text-primary-900 font-bold text-lg shadow-lg shadow-accent/25 group-hover:shadow-accent/40 transition-shadow duration-300">
+                    DJ
+                </span>
+                <span class="hidden sm:inline">DHIRAJ JIREL</span>
+            </a>
+            
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-6">
+                <a href="https://www.dhirajjirel.com.np" 
+                   class="text-gray-300 hover:text-accent text-sm font-medium transition-colors duration-200">
+                    Portfolio
+                </a>
+                <a routerLink="/" 
+                   class="px-4 py-2 bg-accent/10 text-accent border border-accent/30 rounded-full text-sm font-medium hover:bg-accent hover:text-primary-900 transition-all duration-300">
+                    Blog
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
+<!-- Spacer for fixed navbar -->
+<div class="h-16"></div>
