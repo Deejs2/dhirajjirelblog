@@ -1,21 +1,69 @@
 <!-- Footer -->
-<footer class="bg-dark text-light py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h5><a href="" class="text-decoration-none text-white">Dhiraj Jirel BlogSpace</a></h5>
-                <p class="small">Sharing stories that matter.</p>
+<footer class="bg-primary-900 text-gray-300">
+    <!-- Main Footer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Brand Section -->
+            <div class="md:col-span-1">
+                <a href="" class="flex items-center space-x-2 text-white font-serif text-xl font-bold mb-4 group">
+                    <span class="w-10 h-10 bg-gradient-to-br from-accent to-accent-600 rounded-lg flex items-center justify-center text-primary-900 font-bold text-lg">
+                        DJ
+                    </span>
+                    <span>BlogSpace</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    Sharing stories, ideas, and experiences that inspire and connect. Join me on this journey of exploration and discovery.
+                </p>
             </div>
-            <!-- <div class="col-md-6 text-md-end">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a routerLink="privacy-policy-terms-of-use" class="text-light text-decoration-none">Privacy Policy & Terms Of Use</a></li>
-                    <li class="list-inline-item"><a href="https://dhirajjirel.com.np/contact" class="text-light text-decoration-none">Contact</a></li>
+
+            <!-- Quick Links -->
+            <div class="md:col-span-1">
+                <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="https://www.dhirajjirel.com.np" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/" class="text-gray-400 hover:text-accent transition-colors duration-200 text-sm">
+                            Blog
+                        </a>
+                    </li>
                 </ul>
-            </div> -->
+            </div>
+
+            <!-- Connect -->
+            <div class="md:col-span-1">
+                <h5 class="text-white font-semibold mb-4">Connect</h5>
+                <div class="flex space-x-3">
+                    <a href="https://www.facebook.com/people/Dhiraj-Jirel/100008951822229/" target="_blank" 
+                       class="w-10 h-10 bg-primary-800 hover:bg-accent rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-900 transition-all duration-300">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://x.com/dhiraj_np" target="_blank"
+                       class="w-10 h-10 bg-primary-800 hover:bg-accent rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-900 transition-all duration-300">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dhiraj07j" target="_blank"
+                       class="w-10 h-10 bg-primary-800 hover:bg-accent rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-900 transition-all duration-300">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dhiraj-j" target="_blank"
+                       class="w-10 h-10 bg-primary-800 hover:bg-accent rounded-lg flex items-center justify-center text-gray-400 hover:text-primary-900 transition-all duration-300">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="row mt-3">
-            <div class="col text-center">
-                <p class="small mb-0">© {{year}} Dhiraj Jirel. All rights reserved.</p>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-primary-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
+                <p>© {{year}} Dhiraj Jirel. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Made with <span class="text-red-500">❤</span> in Nepal</p>
             </div>
         </div>
     </div>

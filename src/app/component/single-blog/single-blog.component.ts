@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 interface Post {
   title: string;
@@ -24,12 +25,26 @@ export class SingleBlogComponent implements OnInit {
 
   post: any;
   slug: any;
+  private routeSubscription!: Subscription;
 
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.slug = this.router.snapshot.params['slug'];
-    this.post = this.postList.find(post => post.slug === this.slug);
+    // Subscribe to route params changes
+    this.routeSubscription = this.router.params.subscribe(params => {
+      this.slug = params['slug'];
+      this.post = this.postList.find(post => post.slug === this.slug);
+      
+      // Scroll to top when post changes
+      window.scrollTo(0, 0);
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Clean up subscription
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
   }
 
   onClickGoBack() {
@@ -159,7 +174,51 @@ export class SingleBlogComponent implements OnInit {
 
       <p>Here's to more adventures, more laughter, and more wild days like this with great people.</p>
     `
-  }
+  },
+
+  {
+      title: "One Night Camping at Chapakharka – Embracing Nature and Friendship",
+      slug: "one-night-camping-chapakharka",
+      author: "Dhiraj Jirel",
+      date: "Poush 18, 2082",
+      category: "Travel & Nature",
+      tags: ["Camping", "Chapakharka", "Nature", "Friends", "Adventure", "Bonfire", "Stargazing"],
+      image: "assets/camping/night-view-of-kathmandu-from-chapakharka-camping-spot.jpeg",
+      content: `
+        <p>Last weekend, a group of friends and I embarked on an unforgettable adventure—<strong>one night of camping at Chapakharka</strong>, a serene spot nestled in nature's embrace. What made this trip truly special was not just the beautiful surroundings, but the camaraderie, laughter, and shared experiences that brought us closer together.</p>
+        <h3>Setting Up Camp</h3>
+        <p>We arrived at Chapakharka in the late afternoon, greeted by the crisp mountain air and stunning views. Setting up our tents was a team effort, filled with jokes and friendly banter. As the sun began to set, we gathered around a bonfire, the flickering flames casting a warm glow on our faces.</p>
+        <h3>Bonfire Stories and Stargazing</h3>
+        <img src="assets/camping/chapakharka-camping-bonfire.jpeg" class="img-fluid py-3" alt="Bonfire at Chapakharka Camping" loading="lazy">
+        <p>The night was alive with stories, laughter, and the crackling of the fire. We shared tales of past adventures, dreams for the future, and even a few ghost stories that sent shivers down our spines. After dinner, we lay back on blankets, gazing up at the clear night sky. The stars were breathtaking—countless twinkling lights that made us feel both small and connected to the vast universe.</p>
+        <h3>Morning Serenity</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="assets/camping/apson-jirel-and-anup-jirel.jpeg" class="img-fluid py-3" alt="Morning Image of Apson Jirel and Anup Jirel at Chapakharka Camping" loading="lazy">
+          </div>
+          <div class="col-md-6">
+            <img src="assets/camping/dhiraj-jirel-and-sachin-jirel.jpeg" class="img-fluid py-3" alt="Morning Image of Dhiraj Jirel and Sachin Jirel at Chapakharka Camping" loading="lazy">
+          </div>
+        </div>
+        <p>Waking up to the sound of birds chirping and the gentle rustle of leaves was a refreshing experience. We brewed some coffee over the fire and enjoyed a simple breakfast while soaking in the peaceful surroundings. The morning hike around Chapakharka offered more stunning views and a chance to connect with nature.</p>
+        <h3>Reflections on Friendship and Nature</h3>
+        <p>This camping trip was more than just a getaway; it was a reminder of the joy that comes from spending time with friends in nature. The shared experiences, the challenges of setting up camp, and the beauty of the outdoors all contributed to a memorable adventure that strengthened our bonds.</p>
+        <blockquote>"In the heart of nature, we found the true essence of friendship."</blockquote>
+        <p>As we packed up and headed back to the city, we carried with us not just memories of a beautiful place, but the warmth of friendship and the magic of shared experiences under the stars.</p>
+
+        <div class="row">
+          <div class="col-md-12">
+            <img src="assets/camping/chapakharka-camping-group-photo.jpeg" class="img-fluid py-3" alt="Group Photo at Chapakharka Camping" loading="lazy">
+          </div>
+          <div class="col-md-6">
+            <img src="assets/camping/apson-jirel-singing-song.jpeg" class="img-fluid py-3" alt="Apson Jirel Singing Song at Chapakharka Camping" loading="lazy">
+          </div>
+          <div class="col-md-6">
+            <img src="assets/camping/dhiraj-jirel-enjoying-scene.jpeg" class="img-fluid py-3" alt="Dhiraj Jirel Enjoying Scene at Chapakharka Camping" loading="lazy">
+          </div>
+        </div>
+      `
+    }
 
   ];
 };
